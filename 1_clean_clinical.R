@@ -233,7 +233,7 @@ neoadj.df$neoadj_type <-
                   #               )
                   #        )
                   # )
-#            
+    
 # # Radiation and endocrine don't occur together
 # # Radiation and Anti-HER2 only occur in a 3-combo therapy
 # # Endocrine and Anti-HER2 only occur in a 3-combo therapy
@@ -241,9 +241,6 @@ neoadj.df$neoadj_type <-
 # sum(neoadj.df$num_neoadj > 1) 
 # sum(neoadj.df$num_neoadj == 1)
 # sum(neoadj.df$num_neoadj < 1)
-# 
-# 
+
 # clinical$Neoadjuvant_Type <- neoadj.df$neoadj_type
 # clinical <- clinical %>% relocate(Neoadjuvant_Type, .after = Received_Neoadjuvant)
-
-

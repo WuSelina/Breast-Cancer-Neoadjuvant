@@ -122,11 +122,10 @@ sum(is.na(neoadj.no$Oncotype_score))
 #     'Overall_Near-complete_Response_Stricter',
 #     'Overall_Near-complete_Response_Looser',
 #     'Near-complete_Response_Graded_Measure'
-# )
+#     )
 # clinical.wTherapy.resp <- cbind(clinical, subset(clinical.full.cleaned, select = therapy.resp))
 # gg_miss_var(subset(clinical.full.cleaned, select = therapy.resp), show_pct = TRUE)
 # gg_miss_fct(clinical.wTherapy.resp, Received_Neoadjuvant)
-
 
 
 ### FACTOR DISTRIBUTION ############################################################################
@@ -319,6 +318,7 @@ par(mfrow=c(2,2))
     )
     
 }
+
 #### Therapies -------------------------------------------------------------------------------------
 ###### Neoadjuvant therapy distribution ------------------------------
 {
@@ -412,7 +412,6 @@ par(mfrow=c(2,2))
     
 }
 
-
 ###### Adjuvant therapy distribution ------------------------------
 # {
 #     table(Received_Adjuvant)
@@ -501,6 +500,7 @@ par(mfrow=c(2,2))
 
 # Recurrence and neoadjuvant therapy (0=no, 1=yes)
 table(clinical$Received_Neoadjuvant, clinical$Recurrence)
+
 
 ### ADDITIONAL ANALYSES ############################################################################
 #### Out of those that received/did not receive neoadjuvant therapy...------------------------------
@@ -591,7 +591,3 @@ table(clinical$Received_Neoadjuvant, clinical$Recurrence)
         ylim = c(0,1)
     )
 }
-
-
-
-

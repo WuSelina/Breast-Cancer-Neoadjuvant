@@ -1,9 +1,7 @@
-{
-    library(readxl)
-    library(tidyverse)
-    library(mlbench)
-    library(caret) 
-}
+library(readxl)
+library(tidyverse)
+library(mlbench)
+library(caret)
 
 ### LOAD DATA ######################################################################################
 {
@@ -158,4 +156,3 @@ write.table(
     sep='\t', 
     row.names = TRUE
 )
-

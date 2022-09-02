@@ -7,25 +7,23 @@ fgt.cleaned$Patient_ID <- NULL
 fgt.cleaned$rcd_neoadj <- df.merged$Received_Neoadjuvant
 
 ### TEST MULTICOLLINEARITY #########################################################################
-# https://www.codingprof.com/3-ways-to-test-for-multicollinearity-in-r-examples/
-# Variance Inflation Factors ------------------------------------------------------------------------
-library('olsrr')
-
-# Create linear regression model
-model.all <- lm(
-    as.numeric(rcd_neoadj) ~ .,
-    data = fgt.cleaned
-)
-summary(model.all)
-
-testVIF <- ols_vif_tol(model.all)
-testVIF <- testVIF[order(testVIF$VIF), ]
-keep.variables <- subset(testVIF, VIF < 7, select = Variables)      # Need source to say why
-
-# Remove features with severe multicollinearity
-fgt.selected <- subset(fgt.cleaned, select = names(fgt.cleaned) %in% keep.variables$Variables)
-fgt.selected$rcd_neoadj <- fgt.cleaned$rcd_neoadj
-
+## Variance Inflation Factors ------------------------------------------------------------------------
+# library('olsrr')
+# 
+# # Create linear regression model
+# model.all <- lm(
+#     as.numeric(rcd_neoadj) ~ .,
+#     data = fgt.cleaned
+# )
+# summary(model.all)
+# 
+# testVIF <- ols_vif_tol(model.all)
+# testVIF <- testVIF[order(testVIF$VIF), ]
+# keep.variables <- subset(testVIF, VIF < 7, select = Variables)      # Need source to say why
+# 
+# # Remove features with severe multicollinearity
+# fgt.selected <- subset(fgt.cleaned, select = names(fgt.cleaned) %in% keep.variables$Variables)
+# fgt.selected$rcd_neoadj <- fgt.cleaned$rcd_neoadj
 
 
 ### SELECTION USING ALGORITHMS #####################################################################
@@ -46,7 +44,6 @@ importance <- varImp(logit.model, scale=FALSE)
 print(importance)
 # plot importance
 plot(var.importance)
-
 
 
 ### PCA ############################################################################################
@@ -77,7 +74,3 @@ heatmap(
     labRow = c(''),
     labCol = c('')
     )
-
-
-
-

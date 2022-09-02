@@ -11,7 +11,6 @@ source('prep_clinical.R')
 # Missingness graphs: https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html
 gg_miss_fct(clinical, Received_Neoadjuvant)
 
-
 #### CONTINUOUS ####################################################################################
 cont.interest <- c('Age','Oncotype_score')
 
@@ -39,11 +38,9 @@ dis.interest <- c('Menopause','Race_and_Ethnicity','Histologic_type','Mol_Subtyp
                   '','','','','','',''
                   )
 
-
+#### Demographic Data ------------------------------------------------------------------------------
 attach(clinical)
 par(mfrow=c(2,2))
-
-#### Demographic Data ------------------------------------------------------------------------------
 {
     table(Menopause)
     menopause_prop <- prop.table(table(Menopause))
@@ -291,7 +288,6 @@ par(mfrow=c(2,2))
     )
     
 }
-
 #### Recurrence/Surgery distribution ---------------------------------------------------------------
 {
     table(Recurrence)
@@ -305,5 +301,3 @@ par(mfrow=c(2,2))
     )  
     table(Received_Neoadjuvant, Recurrence)
 }
-
-
